@@ -1,0 +1,123 @@
+header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+}
+
+.navbar {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: auto;
+    top: 0;
+    left: 0;
+    background-color: #203E62;
+    overflow-x: hidden;
+    transition: 0.5s;
+    margin-bottom: 10vh;
+}
+
+
+.menuIcon {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 40px;
+  height: 8px;
+  background-color: #E8354C;
+  border-radius: 1rem;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.navbar  .categoryItem {
+   
+    font-size: 20px;
+    font-weight: 700;
+
+    justify-content: center;
+    gap: .8rem;
+    
+    background-color: #203E62;
+    
+    border-bottom: .1rem solid white ;
+    padding: 1rem;
+
+}
+
+.navbar  .categoryItem img {
+    width: 80px;
+    height: 80px;
+    border-radius: 1rem;
+    background-color:  #203E62;
+}
+
+
+.navbar  .categoryItem p {
+    min-width: 24vh;
+    background-color: #E8354C;
+    color: white;
+    padding: .8rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.navbar  .closeMenu{
+    position: absolute;
+    top: 0;
+    right: 25px;
+}
+
+.navbar  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+.navbar .closebtn {
+    position: absolute;
+    top: .2rem;
+    right: .8rem;
+    font-size: 4rem;
+    color: aliceblue;
+}
+
+
+header{
+    padding-block: 1rem;
+    justify-content: space-evenly;
+    background-color: #64595D;
+}
+
+header .logo img{
+    width: 240px;
+}
+
+ @media  only screen and (min-width: 800px) {
+
+    .navbar  .categoryItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 240px;
+        height: 160px;
+        border-radius: 1rem;
+        margin: .2rem;
+        border: none;
+        padding: 1rem 16vh;
+    }
+
+    .navbar  .categoryItem img{
+        padding: .4rem;
+        margin: 0 auto ;
+    }
+
+} 
+

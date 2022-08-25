@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <% if(sessionUserID == users[0]._id ) { %>
+    <h1>Admin</h1>
+    <a href="/logout">Çıkış yap</a><br> 
+    <a href="/admin/createCategory">kategori ekle</a><br>
+    <a href="/admin/createProduct">ürün ekle</a>
+
+    <div class="categoriesList">
+        <h2>Kategoriler</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Kategori Adı</th>
+                    <th scope="col">Düzenle</th>
+                    <th scope="col">Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < categorySort.length; i++){ %>
+                <tr>
+                    <td><%= categorySort[i].categoryName %></td>
+                    <td><a href="/admin/updateCategory/<%= categorySort[i]._id %> " class="update">Düzenle</a></td>
+                    <td><a onclick="return confirm('Emin misiniz?')" class="delete" href="/admin/deletecategory/<%= categorySort[i].categorySlug %>?_method=DELETE" >Sil</a></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="productsList">
+        
+        <h2>Ürünler</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ürün Adı</th>
+                    <th scope="col">Ürün Açıklaması</th>
+                    <th scope="col">Ürün Fiyatı</th>
+                    <th scope="col">Ürün kategorisi</th>
+                    <th scope="col">Düzenle</th>
+                    <th scope="col">Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < productSort.length; i++){ %>
+                <tr>
+                    <td><%= productSort[i].productName %></td>
+                    <td><%= productSort[i].productDescription %></td>
+                    <td><%= productSort[i].productPrice %>₺</td>
+                    <td><%= productSort[i].productCategory.categoryName %></td>
+                    <td><a href="/admin/updateProduct/<%= productSort[i]._id %>" class="update">Düzenle</a></td>
+                    <td><a href="/admin/deleteProduct/<%= productSort[i]._id %>?_method=DELETE" class="delete" onclick="return confirm('Emin misiniz?')" >Sil</a></td>
+                </tr>
+
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+
+    <script src="style.js"></script>
+</body>
+</html>

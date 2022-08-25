@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kategori ekleme</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+    <% if(sessionUserID == users[0]._id ) { %>
+
+        <h3>Kategori oluştur</h3>
+        <form action="createCategory" method="POST" enctype="multipart/form-data">
+            <label for="categoryName">Kategori Adı</label>
+            <input type="text" name="categoryName" required>
+            <label for="categoryName">Kategori Fotoğrafı</label>
+            <input type="file" name="categoryImage" required>
+            <input type="submit" value="Ekle">
+        </form>
+        <% } %>
+    </div>
+    <script src="style.js"></script>
+</body>
+</html>

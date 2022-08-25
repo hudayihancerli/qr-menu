@@ -1,0 +1,33 @@
+footer{
+    background-color: #64595D ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 1rem;
+}
+
+footer p{
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    padding-block: .6rem;
+}
+
+footer .tel{
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-block: .6rem;
+}
+
+footer .programci{
+    color: rgb(114, 161, 231);
+    font-size: 1rem;
+}
+
+footer .year{
+    color: rgb(114, 161, 231);
+    font-size: 1rem;
+    margin-left: 1rem;
+}

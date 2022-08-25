@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kategori güncelle</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if(sessionUserID == users[0]._id ) { %>
+        <h3>Ürün Güncelle</h3>
+        <form action="/admin/updateProduct/<%= productSort._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <label for="productName">Ürün Adı</label>
+            <input type="text" name="productName" value="<%= productSort.productName %>" required>
+
+            <label for="productDescription">Ürün Açıklaması</label>
+            <input type="text" name="productDescription" value="<%= productSort.productDescription %>" >
+            
+            <label for="productCategory">Ürün Kategorisi</label>
+            <select value="productCategory" name="productCategory" required>
+                
+                <% for ( let i = 0; i < category.length; i++){ %>
+                    <option value="<%= category[i]._id %>">
+                        <%= category[i].categoryName %>
+                    </option>
+                <% } %>
+                    
+            </select>
+            <label for="productPrice">Ürün Fiyatı</label>
+            <input type="number" step=0.01 name="productPrice" min="0" value="<%= productSort.productPrice %>" required>
+            <input type="submit" value="submit">
+            <a href="/admin" class="cancel">İptal</a>
+        </form>
+    </div>
+    <% } %>
+    <script src="/style.js"></script>
+</body>
+</html>
