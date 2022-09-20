@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const ejs  = require('ejs');
 const session = require('express-session');
 const fileUpload = require('express-fileupload');
 const methodOverride = require('method-override');
@@ -8,8 +7,11 @@ const MongoStore = require('connect-mongo');
 
 global.userIN = null;
 
+
+
 //dotenv
 require('dotenv').config();
+
 
 // controller
 const pageController = require('./controllers/pageController.js');
@@ -75,4 +77,6 @@ app.delete('/admin/deleteProduct/:id', productController.deleteProduct)
 
 const port = process.env.PORT || 5000;
 
-app.listen(port)
+app.listen(port, () => {
+    console.log(`App -> http://localhost:${port}`)
+})
