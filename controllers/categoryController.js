@@ -41,7 +41,7 @@ exports.updateCategory = async (req,res) => {
     }
 }
  
-exports.deleteCategory = async (req,res) => {
+exports.deleteCategory = async (req,res, next) => {
     try{
 
         const categoryD = await Category.findOneAndRemove({categorySlug: req.params.categorySlug});
@@ -49,15 +49,15 @@ exports.deleteCategory = async (req,res) => {
 
         await Product.deleteMany({productCategory: categoryD.id});
 
-        fs.unlink( __dirname + '/../public' + categoryD.categoryImage, (err) => {
-            res.status(200).render('404');
-        });
+        fs.unlink( __dirname + '/../public' + categoryD.categoryImage, (err => {
+            next()
+        }));
 
 
-        products.forEach(product => {
-            fs.unlink( __dirname + '/../public' + product.productImage, (err) => {
-                res.status(200).render('404');
-            });
+        products.forEach(product => {0
+            fs.unlink( __dirname + '/../public' + product.productImage, (err => {
+                next()
+            }));
         });
 
         res.status(200).redirect('/admin')
